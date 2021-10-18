@@ -1,0 +1,26 @@
+---
+title: "save a graph"
+author: "Eli Schulman"
+date: "10/18/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(here)
+library(tidyverse)
+library(palmerpenguins)
+```
+
+
+```{r}
+ggplot(data = penguins, aes(x = island)) +
+  geom_bar(aes(fill = species))
+```
+
+## use here() to point to a SAVE location (we've been using it as a file retrieval tool)
+```{r}
+ggsave(here("figures", "penguins_count.png"))
+```
+
